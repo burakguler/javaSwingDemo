@@ -14,8 +14,8 @@ public class Frame1 extends javax.swing.JFrame {
             for(City city : cities){
             Object[] row = {city.getId(), city.getName(),
                             city.getCode(), city.getDistrict(), city.getPopulation()};
+            model.addRow(row);
             }
-            model.addRow
         } catch (SQLException ex){
            
         }
@@ -61,11 +61,11 @@ public class Frame1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCities = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCities.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -88,24 +88,31 @@ public class Frame1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        tblCities.setName(""); // NOI18N
+        jScrollPane1.setViewportView(tblCities);
+        if (tblCities.getColumnModel().getColumnCount() > 0) {
+            tblCities.getColumnModel().getColumn(0).setResizable(false);
+            tblCities.getColumnModel().getColumn(1).setResizable(false);
+            tblCities.getColumnModel().getColumn(2).setResizable(false);
+            tblCities.getColumnModel().getColumn(3).setResizable(false);
+            tblCities.getColumnModel().getColumn(4).setResizable(false);
         }
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .add(layout.createSequentialGroup()
+                .add(36, 36, 36)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 282, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,7 +155,7 @@ public class Frame1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCities;
     // End of variables declaration//GEN-END:variables
 
 }
